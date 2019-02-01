@@ -1,0 +1,46 @@
+<vm-title title-value="Search" style-value="info alert-info"></vm-title>
+<div class="well">
+    <form>
+        <div class="row">
+            <div class="col-md-12" ng-controller="masterDataController">
+                <label>Status</label>
+                <vm-select2 control-id="cboHoldingDataStatus" place-holder="Select Holding Data Status" text-field="name" value-field="value" items="HoldingDataStatus"></vm-select2>
+            </div>
+        </div>
+        <br />
+        <!--refer the fix for multiple date picker in a page
+            http://stackoverflow.com/questions/19613510/how-to-have-at-least-two-datepickers-of-ui-bootstrap-on-a-single-page
+            -->
+        <div class="row" ng-controller="uploadSearchController">
+            <div class="col-md-12">
+                <label>From Date</label>
+                <p class="input-group">
+                    <input type="text" class="form-control" id="txtDateFrom" datepicker-popup="{{format}}" ng-model="dtFrom" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" close-text="Close" />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </p>
+            </div>
+        </div>
+        <br />
+        <div class="row" ng-controller="uploadSearchController">
+            <div class="col-md-12">
+                <label>To Date</label>
+                <p class="input-group">
+                    <input type="text" class="form-control" id="txtDateTo" datepicker-popup="{{format}}" ng-model="dtTo" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" close-text="Close" />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </p>
+            </div>
+            <br />
+            <div class="vm-text-center">
+                <button type="reset" id="btnReset" class="btn btn-default">Reset</button>
+                &nbsp;
+                <button type="submit" id="btnSubmit" class="btn btn-primary" ng-click="SearchClicked()">Search</button>
+            </div>
+        </div>
+       
+
+    </form>
+</div>
